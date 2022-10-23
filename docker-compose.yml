@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  server:
+    image: server
+    container_name: server
+    build: ./server
+    restart: always
+    ports:
+      - "1040:1040"
+    networks:
+      - lab2-network
+
+  client:
+    image: client
+    container_name: client
+    build: ./client
+    restart: always
+    ports:
+      - "1040:1040"
+    depends_on:
+      - server
+    networks:
+      - lab2-network
+
+networks:
+  lab2-network:
+    driver: bridge
