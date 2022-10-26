@@ -29,6 +29,6 @@ func StartListen(network, address string) {
 		clientRequest = strings.TrimSuffix(clientRequest, "\n")
 		result := client.ProcessRequest(clientRequest)
 
-		conn.Write([]byte(result + "\n"))
+		conn.Write([]byte(result + "\r"))
 	}
 }

@@ -6,8 +6,6 @@ services:
     container_name: server
     build: ./server
     restart: always
-    ports:
-      - "1040:1040"
     networks:
       - lab2-network
 
@@ -15,11 +13,13 @@ services:
     image: client
     container_name: client
     build: ./client
+    stdin_open: true
     restart: always
     ports:
       - "1040:1040"
     depends_on:
-      - server
+      server:
+        condition: service_started
     networks:
       - lab2-network
 
