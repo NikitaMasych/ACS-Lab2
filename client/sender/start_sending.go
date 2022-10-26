@@ -26,10 +26,10 @@ func StartSending(network, address string) {
 		clientRequest = strings.Replace(clientRequest, "\r", "", -1)
 		conn.Write([]byte(clientRequest))
 
-		serverResponse, err := bufio.NewReader(conn).ReadString('\n')
+		serverResponse, err := bufio.NewReader(conn).ReadBytes('\r')
 		if err != nil {
 			log.Fatal("Unable to get response:", err.Error())
 		}
-		log.Print("Server: ", serverResponse)
+		log.Print("Server: ", strings.TrimSuffix(string(serverResponse), "\r"))
 	}
 }

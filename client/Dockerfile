@@ -17,7 +17,7 @@ WORKDIR /root/
 COPY --from=build-stage /build/main .
 COPY --from=build-stage /build/.env .
 
-EXPOSE 8080
+EXPOSE 1040
 
 CMD ["./main"]
  
