@@ -1,18 +1,22 @@
-package client
+# Welcome!
 
-const (
-	whoInfo = `
----------------------------------------------------------
-                     Welcome!
-This is laboratory work 2 for Computer Networks subject.
-                    Variant 15.
-         Designed and developed by Nikita Masych.
-           Distributed under MIT License 2022.
----------------------------------------------------------
-`
-	helpInfo = `
---------------------------------------------------------------------------------------------------
+This is example of client-server communication via sockets.
+
+# Abstract:
+
+Client starts new channel on port :1040, host: localhost.
+It the main cycle it constantly reads user input commands and sends them to the server for processing.
+Server accordingly constantly reads requests from client and returns result in respect to the input.
+
+# State diagram:
+
+![http://url/to/img.png](https://github.com/NikitaMasych/ACS-Lab2/blob/main/docs/StateDiagramLab2.png)
+
+# Commands:
+
+```
 Commands:
+
 -help: 
 	See documentation.
 -who:
@@ -35,8 +39,5 @@ Commands:
 		2022/10/26 02:18:48 Server: "     !CCMRRaaabbddeeeeilnnoorrtty"
 		>> sort -t -1 "'Say the line senior dev' - 'it depends'"
 		2022/10/26 02:19:03 Server:  "yvttssrponnnliiiheeeeeedddaS-''''       "
---------------------------------------------------------------------------------------------------
-`
-	unknownInfo           = "Undefined command"
-	noSortMeasurementInfo = "No sort has been conducted"
-)
+```
+
